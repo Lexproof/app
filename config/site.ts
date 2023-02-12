@@ -8,10 +8,10 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'ryanwaits/ui',
-  description: 'Nextjs 13 starter template using @shadcn/ui components.',
+  name: 'Lexproof - Compliance Verification for Web3',
+  description: 'We make it easy to verify compliance for Web3 projects.',
   links: {
-    twitter: 'https://twitter.com/ryan_waits',
-    github: 'https://github.com/ryanwaits/ui',
+    twitter: 'https://twitter.com/LexproofHQ',
+    github: 'https://github.com/Lexproof',
   },
 };

@@ -24,12 +24,15 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          'font-sans h-screen bg-white text-neutral-900 antialiased dark:bg-neutral-900 dark:text-white',
+          'font-display h-screen bg-white text-neutral-900 antialiased dark:bg-neutral-900 dark:text-white',
           inter.variable,
           raleway.variable
         )}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SiteHeader />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

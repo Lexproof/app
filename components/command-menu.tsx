@@ -46,7 +46,7 @@ export function CommandMenu() {
         )}
         onClick={() => setOpen(true)}
       >
-        <span className='hidden lg:inline-flex'>Search components...</span>
+        <span className='hidden lg:inline-flex'>Discover claims...</span>
         <span className='inline-flex lg:hidden'>Search...</span>
         <kbd className='font-mono pointer-events-none absolute top-2 right-1.5 hidden h-5 select-none items-center gap-1 rounded border border-neutral-100 bg-neutral-100 px-1.5 text-[10px] font-medium text-neutral-600 opacity-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 sm:flex'>
           <span className='text-xs'>⌘</span>K

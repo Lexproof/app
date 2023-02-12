@@ -6,24 +6,13 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/ui/navigation-menu';
+import { NavigationMenuLink } from '@/ui/navigation-menu';
 
 export function MainNav() {
   return (
     <div className='hidden md:flex'>
       <Link href='/' className='mr-6 flex items-center space-x-2'>
-        <Icons.logo className='h-6 w-6' />
-        <span className='hidden font-bold sm:inline-block'>
-          {siteConfig.name}
-        </span>
+        <Icons.logo />
       </Link>
     </div>
   );

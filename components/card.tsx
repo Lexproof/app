@@ -62,7 +62,7 @@ function GridPattern({ width, height, x, y, squares, ...props }: any) {
   );
 }
 
-export const Card = () => {
+export const Card = (props: { name: string; description: string }) => {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
 
@@ -77,7 +77,7 @@ export const Card = () => {
   return (
     <div
       onMouseMove={onMouseMove}
-      className='group relative flex cursor-pointer rounded-2xl transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-zinc-900/10 dark:hover:shadow-black/5'
+      className='group relative flex h-60 w-80 cursor-pointer rounded-2xl transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-zinc-900/10 dark:hover:shadow-black/5'
     >
       <div className='pointer-events-none'>
         <div className='absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50'>
@@ -105,16 +105,16 @@ export const Card = () => {
         </motion.div>
       </div>
       <div className='ring-zinc-900/7.5 absolute inset-0 rounded-2xl ring-1 ring-inset group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20' />
-      <div className='relative rounded-2xl px-4 pt-16 pb-4'>
-        <div className='dark:bg-white/7.5 dark:ring-white/15 flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900/5 ring-1 ring-zinc-900/25 backdrop-blur-[2px] transition duration-300 group-hover:bg-white/50 group-hover:ring-zinc-900/25 dark:group-hover:bg-orange-400/10 dark:group-hover:ring-orange-400'>
-          <Laptop className='h-5 w-5 fill-zinc-700/10 stroke-zinc-700 transition-colors duration-300 group-hover:stroke-zinc-900 dark:fill-white/10 dark:stroke-zinc-400 dark:group-hover:fill-orange-500/10 dark:group-hover:stroke-orange-500' />
+      <div className='relative rounded-2xl p-4'>
+        <div className='dark:bg-white/7.5 dark:ring-white/15 flex h-9 w-9 items-center justify-center rounded-full bg-zinc-900/5 ring-1 ring-zinc-900/25 backdrop-blur-[2px] transition duration-300 group-hover:bg-white/50 group-hover:ring-zinc-900/25 dark:group-hover:bg-blue-500/10 dark:group-hover:ring-neutral-800'>
+          <Laptop className='h-7 w-7 fill-zinc-700/10 stroke-zinc-700 transition-colors duration-300 group-hover:stroke-zinc-900 dark:fill-white/10 dark:stroke-zinc-400 dark:group-hover:fill-blue-500/10 dark:group-hover:stroke-blue-500' />
         </div>
-        <h3 className='mt-4 text-sm font-semibold leading-7 text-zinc-900 dark:text-white'>
+        <h3 className='mt-2 text-lg font-semibold leading-7 text-zinc-900 dark:text-white'>
           <span className='absolute inset-0 rounded-2xl' />
-          {resource.name}
+          {props.name}
         </h3>
-        <p className='mt-1 text-sm text-zinc-600 dark:text-zinc-400'>
-          {resource.description}
+        <p className='text-md mt-1 text-zinc-600 dark:text-zinc-400'>
+          {props.description}
         </p>
       </div>
     </div>
