@@ -30,14 +30,12 @@ export const Icons = {
       />
     </svg>
   ),
-  networth: (props: LucideProps & { filled?: boolean }) => (
+  networth: (props: LucideProps & { featured?: boolean; filled?: boolean }) => (
     <svg
-      className={cn(
-        `w-${props.height} h-${props.height} group-hover:fill-blue-500`,
-        {
-          'fill-blue-500': props.filled,
-        }
-      )}
+      className={cn(`h-10 w-10 group-hover:fill-blue-500`, {
+        'fill-blue-500': props.filled,
+        'h-96 w-96': props.featured,
+      })}
       viewBox='0 0 116 60'
       fill='currentColor'
       xmlns='http://www.w3.org/2000/svg'

@@ -23,8 +23,8 @@ export default function Products() {
   return (
     <>
       <main className='bg-transparent p-12 sm:p-12'>
-        <div className='flex flex-wrap gap-16 max-w-7xl px-6 lg:px-8'>
-          <div className='mx-auto max-w-2xl lg:mx-0 space-y-6'>
+        <div className='flex max-w-7xl flex-wrap gap-16 px-6 lg:px-8'>
+          <div className='mx-auto max-w-2xl space-y-6 lg:mx-0'>
             <div className='space-y-6'>
               <div className='flex flex-wrap gap-6'>
                 <Link href='/claims'>
@@ -52,7 +52,7 @@ export default function Products() {
             <div className='space-y-2'>
               <h2 className='mt-2 text-4xl font-light tracking-tight text-slate-50 sm:text-5xl'>
                 The most comprehensive suite of{' '}
-                <span className='bg-clip-text bg-gradient-to-r from-indigo-900 to-blue-500 text-transparent'>
+                <span className='bg-gradient-to-r from-indigo-900 to-blue-500 bg-clip-text text-transparent'>
                   ZK powered compliance tools
                 </span>
               </h2>

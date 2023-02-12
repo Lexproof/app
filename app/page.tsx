@@ -39,7 +39,7 @@ export default function Home() {
       <main className='flex h-[calc(100vh_-_4rem)] flex-col items-center justify-center overflow-hidden overflow-y-scroll'>
         <div className='bg-transparent p-24 sm:p-40'>
           <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-            <div className='mx-auto max-w-2xl lg:mx-0 space-y-2'>
+            <div className='mx-auto max-w-2xl space-y-2 lg:mx-0'>
               <div className='space-y-6'>
                 <h2 className='mt-2 text-4xl font-light tracking-tight text-slate-50 sm:text-4xl'>
                   ZK Powered Compliance for Web3
