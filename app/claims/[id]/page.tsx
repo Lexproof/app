@@ -129,7 +129,14 @@ export default function ClaimShow() {
                 </p>
               </section>
               <section className='col-span-1'>
-                <ClaimButton />
+                {/* <ClaimButton /> */}
+                <Link
+                  passHref
+                  href='https://platform-test.polygonid.com/claim-link/284ea1c2-640e-43f8-b5c9-8fe47268e8dc'
+                  target='_blank'
+                >
+                  <Button className='w-28'>Claim</Button>
+                </Link>
               </section>
             </div>
           </section>
