@@ -1,14 +1,15 @@
 import React from 'react';
-import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
 import { Button } from '@/ui/button';
-import { ClaimButton } from '@/components/claim-button';
 
-const pages = [{ name: 'Networth > $1M', href: '#', current: true }];
+const pages = [
+  { name: 'Networth > $1M', href: '/claims/1', current: false },
+  { name: 'Upload Docs', href: '#', current: true },
+];
 
-export default function ClaimShow() {
+export default function ClaimSubmit() {
   return (
     <>
       <nav className='flex px-12 pt-6' aria-label='Breadcrumb'>
@@ -54,28 +55,8 @@ export default function ClaimShow() {
         </ol>
       </nav>
       <main className='bg-transparent p-12 sm:p-12'>
-        <div className='grid max-w-7xl grid-cols-4 gap-16 px-6 lg:px-8'>
-          <div className='col-span-2 mx-auto max-w-2xl space-y-6 lg:mx-0'>
-            <div className='space-y-6'>
-              <div className='flex flex-wrap'>
-                <div className='h-fit rounded-md border border-neutral-800 p-12 shadow-sm ring-1 ring-slate-900/5 dark:bg-neutral-800/50 dark:shadow-none dark:ring-0'>
-                  <Icons.networth featured filled />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className='max-w-7xl px-6 lg:px-8'>
           <section className='col-span-2'>
-            <div className='space-y-2'>
-              <span className='ml-2 inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-3 py-0.5 text-sm font-medium text-white'>
-                $60
-              </span>
-              <h2 className='mt-2 text-4xl font-light tracking-tight text-slate-50 sm:text-7xl'>
-                Networth &gt; $1M
-              </h2>
-              <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                A liquid networth of $1M or more needed for eligibility.
-              </p>
-            </div>
             <div className='my-8 grid grid-cols-3 items-center gap-8'>
               <section className='col-span-2'>
                 <h2 className='text-lg font-medium leading-10 tracking-tight text-white'>
@@ -87,7 +68,7 @@ export default function ClaimShow() {
                 </p>
               </section>
               <section className='col-span-1'>
-                <Button variant='outline' className='w-28' disabled>
+                <Button variant='outline' disabled>
                   Completed
                 </Button>
               </section>
@@ -97,9 +78,9 @@ export default function ClaimShow() {
                 <div className='flex items-center'>
                   <h2 className='text-lg font-medium leading-10 tracking-tight text-white'>
                     Upload Documents{' '}
-                    {/* <span className='ml-2 inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-3 py-0.5 text-sm font-medium text-white'>
+                    <span className='ml-2 inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-3 py-0.5 text-sm font-medium text-white'>
                       Required
-                    </span> */}
+                    </span>
                   </h2>
                 </div>
                 <p className='font-regular mt-2 text-base leading-8 tracking-tight text-gray-500'>
@@ -108,14 +89,7 @@ export default function ClaimShow() {
                 </p>
               </section>
               <section className='col-span-1'>
-                {/* <Link href='/claims/1/submit'>
-                <section className='col-span-1'>
-                  <Button>Get started</Button>
-                </section>
-              </Link> */}
-                <Button variant='outline' className='w-28' disabled>
-                  Completed
-                </Button>
+                <Button>Get started</Button>
               </section>
             </div>
             <div className='my-8 grid grid-cols-3 items-center gap-8'>
@@ -129,7 +103,7 @@ export default function ClaimShow() {
                 </p>
               </section>
               <section className='col-span-1'>
-                <ClaimButton />
+                <Button disabled>Claim proof</Button>
               </section>
             </div>
           </section>
