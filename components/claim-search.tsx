@@ -11,7 +11,7 @@ import { Button } from '@/ui/button';
 import { Input } from '@/ui/input';
 
 async function getClaims() {
-  const data = await fetch('/api/claims');
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/claims`);
   return await data.json();
 }
 

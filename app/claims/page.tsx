@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ClaimSearch } from '@/components/claim-search';
 
 async function getClaims() {
-  const data = await fetch('/api/claims');
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/claims`);
   return await data.json();
 }
 
