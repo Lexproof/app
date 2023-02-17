@@ -10,7 +10,7 @@ import { ClaimSearch } from '@/components/claim-search';
 
 export default async function Claims(props) {
   const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
-  const claims = data.json();
+  const claims = await data.json();
   // const claims = {
   //   offers: [
   //     {
