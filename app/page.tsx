@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <svg
-        className='absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'
+        className='absolute inset-0 -z-10 h-full w-full stroke-black/20 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-white/10'
         aria-hidden='true'
       >
         <defs>
@@ -23,7 +23,11 @@ export default function Home() {
             <path d='M.5 200V.5H200' fill='none' />
           </pattern>
         </defs>
-        <svg x='50%' y={-1} className='overflow-visible fill-neutral-800/10'>
+        <svg
+          x='50%'
+          y={-1}
+          className='overflow-visible fill-neutral-800/5 dark:fill-neutral-800/10'
+        >
           <path
             d='M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z'
             strokeWidth={0}
@@ -41,11 +45,15 @@ export default function Home() {
           <div className='mx-auto max-w-7xl px-6 lg:px-8'>
             <div className='mx-auto max-w-2xl space-y-2 lg:mx-0'>
               <div className='space-y-6'>
-                <h2 className='mt-2 text-4xl font-light tracking-tight text-slate-50 sm:text-4xl'>
+                <h2 className='mt-2 text-4xl font-light tracking-tight text-neutral-900 dark:text-slate-50 sm:text-4xl'>
                   ZK Powered Compliance for Web3
                 </h2>
                 <div className='flex w-full max-w-sm items-center justify-center space-x-2'>
-                  <Input type='email' placeholder='Email' />
+                  <Input
+                    type='email'
+                    placeholder='Email'
+                    className='bg-white dark:bg-neutral-900'
+                  />
                   <Link href='/products'>
                     <Button type='submit' className='w-24'>
                       Sign in

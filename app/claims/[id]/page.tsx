@@ -6,7 +6,7 @@ import { Icons } from '@/components/icons';
 import { Button } from '@/ui/button';
 import { ClaimButton } from '@/components/claim-button';
 
-const pages = [{ name: 'Networth > $1M', href: '#', current: true }];
+const pages = [{ name: 'Investments > $5M', href: '#', current: true }];
 
 export default function ClaimShow() {
   return (
@@ -40,8 +40,9 @@ export default function ClaimShow() {
                   className={cn(
                     'text-md ml-4 font-medium text-gray-500 hover:text-gray-700',
                     {
-                      'text-white': page.current,
-                      'hover:text-gray-100': page.current,
+                      'text-neutral-900 dark:text-slate-50': page.current,
+                      'hover:text-gray-700 dark:hover:text-gray-100':
+                        page.current,
                     }
                   )}
                   aria-current={page.current ? 'page' : undefined}
@@ -58,7 +59,7 @@ export default function ClaimShow() {
           <div className='col-span-2 mx-auto max-w-2xl space-y-6 lg:mx-0'>
             <div className='space-y-6'>
               <div className='flex flex-wrap'>
-                <div className='h-fit rounded-md border border-neutral-800 p-12 shadow-sm ring-1 ring-slate-900/5 dark:bg-neutral-800/50 dark:shadow-none dark:ring-0'>
+                <div className='h-fit rounded-md border border-neutral-800/10 bg-neutral-800/5 p-12 shadow-sm ring-0 dark:border-neutral-800 dark:bg-neutral-800/50 dark:shadow-none'>
                   <Icons.networth featured filled />
                 </div>
               </div>
@@ -67,18 +68,18 @@ export default function ClaimShow() {
           <section className='col-span-2'>
             <div className='space-y-2'>
               <span className='ml-2 inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-3 py-0.5 text-sm font-medium text-white'>
-                $60
+                $40
               </span>
-              <h2 className='mt-2 text-4xl font-light tracking-tight text-slate-50 sm:text-7xl'>
-                Networth &gt; $1M
+              <h2 className='mt-2 text-4xl font-light tracking-tight text-neutral-900 dark:text-slate-50 sm:text-6xl'>
+                Investments &gt; $5M
               </h2>
               <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                A liquid networth of $1M or more needed for eligibility.
+                Ownership of $5M or more in investments.
               </p>
             </div>
             <div className='my-8 grid grid-cols-3 items-center gap-8'>
               <section className='col-span-2'>
-                <h2 className='text-lg font-medium leading-10 tracking-tight text-white'>
+                <h2 className='text-lg font-medium leading-10 tracking-tight text-neutral-900 dark:text-slate-50'>
                   Identity Verification (KYC)
                 </h2>
                 <p className='font-regular mt-2 text-base leading-8 tracking-tight text-gray-500'>
@@ -87,7 +88,11 @@ export default function ClaimShow() {
                 </p>
               </section>
               <section className='col-span-1'>
-                <Button variant='outline' className='w-28' disabled>
+                <Button
+                  variant='outline'
+                  className='w-28 bg-gray-500 text-white dark:bg-neutral-900 dark:text-slate-50'
+                  disabled
+                >
                   Completed
                 </Button>
               </section>
@@ -95,7 +100,7 @@ export default function ClaimShow() {
             <div className='my-8 grid grid-cols-3 items-center gap-8'>
               <section className='col-span-2'>
                 <div className='flex items-center'>
-                  <h2 className='text-lg font-medium leading-10 tracking-tight text-white'>
+                  <h2 className='text-lg font-medium leading-10 tracking-tight text-neutral-900 dark:text-slate-50'>
                     Upload Documents{' '}
                     {/* <span className='ml-2 inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-3 py-0.5 text-sm font-medium text-white'>
                       Required
@@ -113,14 +118,18 @@ export default function ClaimShow() {
                   <Button>Get started</Button>
                 </section>
               </Link> */}
-                <Button variant='outline' className='w-28' disabled>
+                <Button
+                  variant='outline'
+                  className='w-28 bg-gray-500 text-white dark:bg-neutral-900 dark:text-slate-50'
+                  disabled
+                >
                   Completed
                 </Button>
               </section>
             </div>
             <div className='my-8 grid grid-cols-3 items-center gap-8'>
               <section className='col-span-2'>
-                <h2 className='text-lg font-medium leading-10 tracking-tight text-white'>
+                <h2 className='text-lg font-medium leading-10 tracking-tight text-neutral-900 dark:text-slate-50'>
                   Connect Polygon ID
                 </h2>
                 <p className='font-regular mt-2 text-base leading-8 tracking-tight text-gray-500'>

@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// I have a User model, a Claim model, and an Offer model. Claim is a join table between User and Offer. Offer attributes are name, description, price, icon, and status.
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  name     String
+  claims   Claim[]
+}
+
+model Claim {
+  id      Int   @id @default(autoincrement())
+  user    User  @relation(fields: [userId], references: [id])
+  userId  Int
+  offer   Offer @relation(fields: [offerId], references: [id])
+  offerId Int
+}
+
+model Offer {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  icon        String
+  active      Boolean @default(false)
+  claims      Claim[]
+}

@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ClaimSearch } from '@/components/claim-search';
 
 async function getClaims() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/claims`);
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
   return await data.json();
 }
 
@@ -17,7 +17,7 @@ export default async function Claims(props) {
           <div className='max-w-7xl px-6 lg:px-8'>
             <div className='mx-auto max-w-2xl space-y-6'>
               <div className='space-y-2'>
-                <p className='font-regular text-lg leading-8 tracking-tight text-slate-50'>
+                <p className='font-regular text-lg leading-8 tracking-tight text-neutral-900 dark:text-slate-50'>
                   Explore our collection of ZK powered regulatory and compliance
                   claims.
                 </p>

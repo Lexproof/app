@@ -11,12 +11,12 @@ import { Button } from '@/ui/button';
 import { Input } from '@/ui/input';
 
 async function getClaims() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/claims`);
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
   return await data.json();
 }
 
 export function ClaimSearch({ claims }) {
-  const [selectedClaims, setSelectedClaims] = React.useState([]);
+  const [selectedOffers, setSelectedOffers] = React.useState([]);
   const { data, isLoading, isRefetching, isStale, isFetching, isFetched } =
     useQuery({
       queryKey: ['claims'],
@@ -29,22 +29,20 @@ export function ClaimSearch({ claims }) {
     setFilter(event.target.value);
   };
 
-  const filteredClaims = React.useMemo(() => {
-    return data.filter((claim) => {
-      return claim.name.toLowerCase().includes(filter.toLowerCase());
+  const filteredOffers = React.useMemo(() => {
+    return data.offers.filter((offer) => {
+      return offer.name.toLowerCase().includes(filter.toLowerCase());
     });
   }, [data, filter]);
 
-  // create a lookup table for the claims images
-
-  const claimIcons = {
-    1: (
-      <div className='mr-2 h-fit rounded-md shadow-sm ring-1 ring-slate-900/5 dark:shadow-none dark:ring-0'>
+  const offerIcons = {
+    '1': (
+      <div className='mr-2 h-fit rounded-md ring-0'>
         <Icons.networth height='10' width='10' />
       </div>
     ),
-    2: (
-      <div className='mr-2 h-fit rounded-md shadow-sm ring-1 ring-slate-900/5 group-hover:shadow group-hover:ring-slate-900/10 dark:shadow-none dark:ring-0'>
+    '2': (
+      <div className='mr-2 h-fit rounded-md ring-0 ring-slate-900/5 group-hover:shadow group-hover:ring-slate-900/10'>
         <svg
           className='h-8 w-8 group-hover:fill-blue-500'
           viewBox='0 0 62 77'
@@ -64,8 +62,8 @@ export function ClaimSearch({ claims }) {
         </svg>
       </div>
     ),
-    3: (
-      <div className='mr-2 h-fit rounded-md shadow-sm ring-1 ring-slate-900/5 group-hover:shadow group-hover:ring-slate-900/10 dark:shadow-none dark:ring-0'>
+    '3': (
+      <div className='mr-2 h-fit rounded-md ring-0 ring-slate-900/5 group-hover:shadow group-hover:ring-slate-900/10'>
         <svg
           className='h-8 w-8 group-hover:fill-blue-500'
           viewBox='0 0 163 160'
@@ -87,8 +85,8 @@ export function ClaimSearch({ claims }) {
         </svg>
       </div>
     ),
-    4: (
-      <div className='h-fit rounded-md p-2 shadow-sm ring-1 ring-slate-900/5 group-hover:shadow group-hover:ring-slate-900/10 dark:shadow-none dark:ring-0'>
+    '4': (
+      <div className='h-fit rounded-md p-2 ring-0 ring-slate-900/5 group-hover:shadow group-hover:ring-slate-900/10'>
         <svg
           className='h-8 w-8 group-hover:fill-blue-500'
           viewBox='0 0 99 99'
@@ -113,8 +111,8 @@ export function ClaimSearch({ claims }) {
         </svg>
       </div>
     ),
-    5: (
-      <div className='h-fit rounded-md p-2 shadow-sm ring-1 ring-slate-900/5 dark:shadow-none dark:ring-0'>
+    '5': (
+      <div className='h-fit rounded-md p-2 ring-0 ring-slate-900/5'>
         <svg
           className='h-8 w-8 group-hover:fill-blue-500'
           viewBox='0 0 116 117'
@@ -182,25 +180,25 @@ export function ClaimSearch({ claims }) {
     <>
       <Input
         type='text'
-        placeholder='Search claims...'
+        placeholder='Search offers...'
         value={filter}
         onChange={onChange}
       />
       <ul role='list' className='divide-y divide-neutral-800/20'>
-        {filteredClaims.map((person) => (
+        {filteredOffers.map((person) => (
           <Link key={person.name} href={`/claims/${person.id}`}>
-            <li className='group flex cursor-pointer items-center justify-between rounded-md border border-transparent p-4 hover:bg-neutral-800/20'>
+            <li className='group flex cursor-pointer items-center justify-between rounded-md border border-transparent p-4 hover:bg-neutral-100/90 dark:hover:bg-neutral-800/20'>
               <div className='flex gap-8'>
-                {claimIcons[person.icon]}
+                {offerIcons[person.icon]}
                 <div>
-                  <p className='text-sm font-medium text-white'>
+                  <p className='text-sm font-medium text-neutral-900 dark:text-slate-50'>
                     {person.name}
                   </p>
-                  <p className='text-sm text-gray-500'>{person.tldr}</p>
+                  <p className='text-sm text-gray-500'>{person.description}</p>
                 </div>
               </div>
 
-              <p className='text-sm font-bold text-white'>
+              <p className='text-sm font-bold text-neutral-900 dark:text-slate-50'>
                 <span className='font-regular mr-0.5 text-sm'>$</span>
                 {person.price}
               </p>
@@ -208,9 +206,9 @@ export function ClaimSearch({ claims }) {
               value={person.id}
               onCheckedChange={(checked: boolean) =>
                 checked
-                  ? setSelectedClaims([...selectedClaims, person.id])
-                  : setSelectedClaims(
-                      selectedClaims.filter((id) => id !== person.id)
+                  ? setSelectedOffers([...selectedOffers, person.id])
+                  : setSelectedOffers(
+                      selectedOffers.filter((id) => id !== person.id)
                     )
               }
             /> */}
@@ -218,13 +216,13 @@ export function ClaimSearch({ claims }) {
           </Link>
         ))}
       </ul>
-      {selectedClaims.length > 0 && (
+      {selectedOffers.length > 0 && (
         <Link href='/claims'>
           <div className='fixed inset-x-0 bottom-5 mx-auto w-60 cursor-pointer'>
             <div className='rounded-3xl  border border-slate-50 bg-slate-50 p-4 shadow-md dark:border-neutral-800 dark:bg-gray-50'>
               <section className='flex items-center justify-between'>
                 <p className='text-md font-medium text-neutral-900'>
-                  {selectedClaims.length} claims selected
+                  {selectedOffers.length} claims selected
                 </p>
                 <Button variant='link'>
                   <ArrowRight size='20' className='ml-2 text-neutral-900' />

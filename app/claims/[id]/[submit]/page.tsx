@@ -5,7 +5,11 @@ import { Icons } from '@/components/icons';
 import { Button } from '@/ui/button';
 
 const pages = [
-  { name: 'Networth > $1M', href: '/claims/1', current: false },
+  {
+    name: 'Investments > $5M (Qualified Buyer)',
+    href: '/claims/1',
+    current: false,
+  },
   { name: 'Upload Docs', href: '#', current: true },
 ];
 

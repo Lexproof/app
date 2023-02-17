@@ -50,7 +50,7 @@ export default function Products() {
           </div>
           <section className='flex-1'>
             <div className='space-y-2'>
-              <h2 className='mt-2 text-4xl font-light tracking-tight text-slate-50 sm:text-5xl'>
+              <h2 className='mt-2 text-4xl font-light tracking-tight text-neutral-900 dark:text-slate-50 sm:text-5xl'>
                 The most comprehensive suite of{' '}
                 <span className='bg-gradient-to-r from-indigo-900 to-blue-500 bg-clip-text text-transparent'>
                   ZK powered compliance tools
@@ -63,7 +63,7 @@ export default function Products() {
               </p> */}
             </div>
             <dl className='my-10 space-y-6 divide-y divide-white/10'>
-              <h2 className='text-2xl font-medium leading-10 tracking-tight text-white'>
+              <h2 className='text-2xl font-medium leading-10 tracking-tight text-neutral-900 dark:text-slate-50'>
                 Frequently asked questions
               </h2>
               {faqs.map((faq) => (
