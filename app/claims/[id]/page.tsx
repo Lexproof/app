@@ -101,15 +101,15 @@ export default function ClaimShow() {
               <section className='col-span-2'>
                 <div className='flex items-center'>
                   <h2 className='text-lg font-medium leading-10 tracking-tight text-neutral-900 dark:text-slate-50'>
-                    Upload Documents{' '}
+                    Upload Documents & Link Accounts{' '}
                     {/* <span className='ml-2 inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-3 py-0.5 text-sm font-medium text-white'>
                       Required
                     </span> */}
                   </h2>
                 </div>
                 <p className='font-regular mt-2 text-base leading-8 tracking-tight text-gray-500'>
-                  Lexproof also needs a few documents to verify your your
-                  networth.
+                  Lexproof also needs a few documents and/or links to financial
+                  accounts to verify your networth.
                 </p>
               </section>
               <section className='col-span-1'>
