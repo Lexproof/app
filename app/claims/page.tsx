@@ -4,24 +4,25 @@ import { useQuery } from '@tanstack/react-query';
 import { ClaimSearch } from '@/components/claim-search';
 
 // async function getClaims() {
-//   const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
+// const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
 //   return await data.json();
 // }
 
 export default async function Claims(props) {
-  // const claims = await getClaims();
-  const claims = {
-    offers: [
-      {
-        id: 1,
-        name: 'Investments > $5M (Qualified Buyer)',
-        description: 'Ownership of $5M or more in investments.',
-        price: 40,
-        icon: '1',
-        active: true,
-      },
-    ],
-  };
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
+  const claims = data.json();
+  // const claims = {
+  //   offers: [
+  //     {
+  //       id: 1,
+  //       name: 'Investments > $5M (Qualified Buyer)',
+  //       description: 'Ownership of $5M or more in investments.',
+  //       price: 40,
+  //       icon: '1',
+  //       active: true,
+  //     },
+  //   ],
+  // };
   return (
     <>
       <main className='flex flex-col items-center justify-center'>
