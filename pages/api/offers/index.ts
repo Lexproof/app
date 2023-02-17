@@ -10,7 +10,7 @@ export default async function handler(
     const offers = await prisma.offer.findMany();
     res.status(200).json({ offers });
   } catch (error) {
-    console.error(error);
+    console.error('Prisma Error', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
   // res.status(200).json([
