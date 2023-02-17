@@ -7,7 +7,7 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   try {
-    const offers = await prisma.offer.findMany();
+    const offers = await fetch('https://jsonplaceholder.typicode.com/todos/1');
     res.status(200).json({ offers });
   } catch (error) {
     console.error('Prisma Error', error);
