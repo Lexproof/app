@@ -3,16 +3,17 @@ import { useQuery } from '@tanstack/react-query';
 
 import { ClaimSearch } from '@/components/claim-search';
 
-// async function getClaims() {
-// const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
-//   return await data.json();
-// }
+async function getClaims() {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
+  if (!data.ok) {
+    throw new Error('Failed to fetch offers');
+  }
+  return await data.json();
+}
 
 export default async function Claims(props) {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`, {
-    cache: 'no-store',
-  });
-  const claims = await data.json();
+  const claims = await getClaims();
+  console.log({ claims });
   // const claims = {
   //   offers: [
   //     {
