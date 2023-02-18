@@ -54,8 +54,8 @@ export default function ClaimShow() {
           ))}
         </ol>
       </nav>
-      <main className='bg-transparent p-12 sm:p-12'>
-        <div className='grid max-w-7xl grid-cols-4 gap-16 px-6 lg:px-8'>
+      <main className='sm:py-63 bg-transparent py-3 px-12 sm:px-12'>
+        <div className='grid max-w-7xl grid-cols-4 items-center px-6 lg:px-8'>
           <div className='col-span-2 mx-auto max-w-2xl space-y-6 lg:mx-0'>
             <div className='space-y-6'>
               <div className='flex flex-wrap'>
