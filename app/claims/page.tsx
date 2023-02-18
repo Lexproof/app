@@ -4,7 +4,7 @@ import { ClaimSearch } from '@/components/claim-search';
 import { getOffers } from '@/lib/api';
 
 export default async function Claims() {
-  const offers = await getOffers();
+  const data = await getOffers();
 
   return (
     <>
@@ -19,7 +19,7 @@ export default async function Claims() {
                 </p>
               </div>
               <div className='space-y-6'>
-                <ClaimSearch offers={offers} />
+                <ClaimSearch data={data} />
               </div>
             </div>
           </div>

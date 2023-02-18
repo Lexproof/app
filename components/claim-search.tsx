@@ -2,23 +2,15 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useQuery } from '@tanstack/react-query';
 import { ArrowRight } from 'lucide-react';
 
 import { Icons } from '@/components/icons';
 import { Button } from '@/ui/button';
 // import { Checkbox } from '@/ui/checkbox';
 import { Input } from '@/ui/input';
-import { getOffers } from '@/lib/api';
 
-export function ClaimSearch({ offers }) {
+export function ClaimSearch({ data }) {
   const [selectedOffers, setSelectedOffers] = React.useState([]);
-  const { data, isLoading, isRefetching, isStale, isFetching, isFetched } =
-    useQuery({
-      queryKey: ['offers'],
-      queryFn: getOffers,
-      initialData: offers,
-    });
   const [filter, setFilter] = React.useState('');
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
