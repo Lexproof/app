@@ -2,30 +2,11 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { ClaimSearch } from '@/components/claim-search';
-
-async function getClaims() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
-  if (!data.ok) {
-    throw new Error('Failed to fetch offers');
-  }
-  return await data.json();
-}
+import { getOffers } from '@/lib/api';
 
 export default async function Claims(props) {
-  const claims = await getClaims();
-  console.log({ claims });
-  // const claims = {
-  //   offers: [
-  //     {
-  //       id: 1,
-  //       name: 'Investments > $5M (Qualified Buyer)',
-  //       description: 'Ownership of $5M or more in investments.',
-  //       price: 40,
-  //       icon: '1',
-  //       active: true,
-  //     },
-  //   ],
-  // };
+  const offers = await getOffers();
+
   return (
     <>
       <main className='flex flex-col items-center justify-center'>
@@ -39,7 +20,7 @@ export default async function Claims(props) {
                 </p>
               </div>
               <div className='space-y-6'>
-                <ClaimSearch claims={claims} />
+                <ClaimSearch offers={offers} />
               </div>
             </div>
           </div>

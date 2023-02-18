@@ -9,19 +9,15 @@ import { Icons } from '@/components/icons';
 import { Button } from '@/ui/button';
 // import { Checkbox } from '@/ui/checkbox';
 import { Input } from '@/ui/input';
+import { getOffers } from '@/lib/api';
 
-async function getClaims() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
-  return await data.json();
-}
-
-export function ClaimSearch({ claims }) {
+export function ClaimSearch({ offers }) {
   const [selectedOffers, setSelectedOffers] = React.useState([]);
   const { data, isLoading, isRefetching, isStale, isFetching, isFetched } =
     useQuery({
-      queryKey: ['claims'],
-      queryFn: getClaims,
-      initialData: claims,
+      queryKey: ['offers'],
+      queryFn: getOffers,
+      initialData: offers,
     });
   const [filter, setFilter] = React.useState('');
 

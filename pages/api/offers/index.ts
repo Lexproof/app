@@ -7,10 +7,10 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   try {
-    const offers = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    const offers = await prisma.offer.findMany();
     res.status(200).json({ offers });
   } catch (error) {
-    console.error('Prisma Error', error);
+    console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
   // res.status(200).json([
