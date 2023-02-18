@@ -1,7 +1,10 @@
+import prisma from '@/lib/prisma';
+
 export async function getOffers() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/offers`);
-  if (!data.ok) {
-    throw new Error('Failed to fetch offers');
+  try {
+    const offers = await prisma.offer.findMany();
+    return { offers };
+  } catch (error) {
+    return { error, offers: [] };
   }
-  return await data.json();
 }
