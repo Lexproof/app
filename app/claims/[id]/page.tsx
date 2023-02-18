@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
 import { Button } from '@/ui/button';
-import { ClaimButton } from '@/components/claim-button';
+// import { ClaimButton } from '@/components/claim-button';
 
 const pages = [{ name: 'Investments > $5M', href: '#', current: true }];
 

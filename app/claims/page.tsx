@@ -1,10 +1,9 @@
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
 
 import { ClaimSearch } from '@/components/claim-search';
 import { getOffers } from '@/lib/api';
 
-export default async function Claims(props) {
+export default async function Claims() {
   const offers = await getOffers();
 
   return (
