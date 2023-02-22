@@ -176,16 +176,15 @@ export function ClaimSearch({ data }) {
         {filteredOffers.map((person) => (
           <Link key={person.name} href={`/claims/${person.id}`}>
             <li className='group flex cursor-pointer items-center justify-between rounded-md border border-transparent p-4 hover:bg-neutral-100/90 dark:hover:bg-neutral-800/20'>
-              <div className='flex gap-8'>
-                {offerIcons[person.icon]}
-                <div>
+              <div className='flex items-center gap-8'>
+                <div className='w-8'>{offerIcons[person.icon]}</div>
+                <div className='min-w-full'>
                   <p className='text-sm font-medium text-neutral-900 dark:text-slate-50'>
                     {person.name}
                   </p>
                   <p className='text-sm text-gray-500'>{person.description}</p>
                 </div>
               </div>
-
               <p className='text-sm font-bold text-neutral-900 dark:text-slate-50'>
                 <span className='font-regular mr-0.5 text-sm'>$</span>
                 {person.price}

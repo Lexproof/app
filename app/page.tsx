@@ -1,76 +1,138 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { Button } from '@/ui/button';
+import { siteConfig } from '@/config/site';
+import { cn } from '@/lib/utils';
+import { Icons } from '@/components/icons';
+import { Button, buttonVariants } from '@/ui/button';
 import { Input } from '@/ui/input';
 
 export default function Home() {
   return (
     <>
-      <svg
-        className='absolute inset-0 -z-10 h-full w-full stroke-black/20 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-white/10'
-        aria-hidden='true'
-      >
-        <defs>
-          <pattern
-            id='983e3e4c-de6d-4c3f-8d64-b9761d1534cc'
-            width={200}
-            height={200}
-            x='50%'
-            y={-1}
-            patternUnits='userSpaceOnUse'
-          >
-            <path d='M.5 200V.5H200' fill='none' />
-          </pattern>
-        </defs>
-        <svg
-          x='50%'
-          y={-1}
-          className='overflow-visible fill-neutral-800/5 dark:fill-neutral-800/10'
-        >
-          <path
-            d='M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z'
-            strokeWidth={0}
-          />
-        </svg>
-        <rect
-          width='100%'
-          height='100%'
-          strokeWidth={0}
-          fill='url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)'
-        />
-      </svg>
-      <main className='flex h-[calc(100vh_-_4rem)] flex-col items-center justify-center overflow-hidden overflow-y-scroll'>
-        <div className='bg-transparent p-24 sm:p-40'>
-          <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-            <div className='mx-auto max-w-2xl space-y-2 lg:mx-0'>
-              <div className='space-y-6'>
-                <h2 className='mt-2 text-4xl font-light tracking-tight text-neutral-900 dark:text-slate-50 sm:text-4xl'>
-                  ZK Powered Compliance for Web3
-                </h2>
-                <div className='flex w-full max-w-sm items-center justify-center space-x-2'>
-                  <Input
-                    type='email'
-                    placeholder='Email'
-                    className='bg-white dark:bg-neutral-900'
-                  />
+      <main className='flex h-[calc(100vh_-_10rem)] items-center justify-center overflow-hidden overflow-y-scroll bg-neutral-100 dark:bg-neutral-900'>
+        <div className='flex min-h-full w-11/12 flex-col justify-center'>
+          <div className='sm:mx-auto sm:w-full sm:max-w-md'>
+            <img
+              className='mx-auto h-12 w-auto'
+              src='/lexproof-icon.png'
+              alt='Your Company'
+            />
+            <h2 className='font-regular mt-6 text-center text-2xl tracking-tight text-neutral-900 dark:text-slate-50 sm:text-2xl'>
+              Sign in to your account
+            </h2>
+          </div>
+
+          <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
+            <div className='shadow-bg-neutral-900 bg-white py-8 px-4 shadow dark:border dark:border-neutral-800/25 dark:bg-neutral-800/25 sm:rounded-lg sm:px-10'>
+              <form className='space-y-6' action='#' method='POST'>
+                <div>
+                  <label
+                    htmlFor='email'
+                    className='block text-sm font-medium text-gray-700 dark:text-gray-500'
+                  >
+                    Email address
+                  </label>
+                  <div className='mt-1'>
+                    <Input
+                      type='email'
+                      className='bg-white dark:border-neutral-800 dark:bg-neutral-800/25'
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor='password'
+                    className='block text-sm font-medium text-gray-700 dark:text-gray-500'
+                  >
+                    Password
+                  </label>
+                  <div className='mt-1'>
+                    <Input
+                      type='password'
+                      className='border-neutral-300 bg-white dark:border-neutral-800 dark:bg-neutral-800/25'
+                    />
+                  </div>
+                </div>
+                <div>
                   <Link href='/products'>
-                    <Button type='submit' className='w-24'>
+                    <Button
+                      type='submit'
+                      variant='primary'
+                      className='flex w-full justify-center '
+                    >
                       Sign in
                     </Button>
                   </Link>
                 </div>
+              </form>
+              <div className='mt-6'>
+                <div>
+                  <p className='text-center text-sm leading-8 text-gray-500 dark:text-gray-500'>
+                    New to Lexproof?{' '}
+                    <Link href='/register'>
+                      <Button
+                        type='submit'
+                        variant='link'
+                        className={cn(
+                          'text-blue-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-600'
+                        )}
+                      >
+                        Create an account
+                      </Button>
+                    </Link>
+                  </p>
+                </div>
               </div>
-              <p className='text-md leading-8 text-gray-500'>
-                New to Lexproof?{' '}
-                <a href='#' className='text-blue-500'>
-                  Create an account
-                </a>
-              </p>
             </div>
           </div>
         </div>
       </main>
+      {/* <footer className='border-t border-t-neutral-200 bg-neutral-50 dark:border-t-neutral-800 dark:bg-neutral-900'>
+        <div className='container py-12 md:flex md:items-center md:justify-between lg:px-8'>
+          <div className='flex justify-center space-x-6 md:order-2'>
+            <nav className='flex items-center space-x-1'>
+              <Link
+                href={siteConfig.links.github}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <div
+                  className={buttonVariants({
+                    size: 'sm',
+                    variant: 'ghost',
+                    className: 'text-neutral-700 dark:text-neutral-400',
+                  })}
+                >
+                  <Icons.gitHub className='h-5 w-5' />
+                  <span className='sr-only'>GitHub</span>
+                </div>
+              </Link>
+              <Link
+                href={siteConfig.links.twitter}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <div
+                  className={buttonVariants({
+                    size: 'sm',
+                    variant: 'ghost',
+                    className: 'text-neutral-700 dark:text-neutral-400',
+                  })}
+                >
+                  <Icons.twitter className='h-5 w-5 fill-current' />
+                  <span className='sr-only'>Twitter</span>
+                </div>
+              </Link>
+            </nav>
+          </div>
+          <div className='mt-8 md:order-1 md:mt-0'>
+            <p className='text-center text-xs leading-5 text-gray-500'>
+              &copy; 2023 StackerDAO Labs. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer> */}
     </>
   );
 }

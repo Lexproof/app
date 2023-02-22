@@ -8,7 +8,7 @@ export const queryClient = new QueryClient();
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemeProvider attribute='class' defaultTheme='system' enableSystem>
+    <NextThemeProvider attribute='class' defaultTheme='dark' enableSystem>
       <QueryClientProvider client={queryClient}>
         {children}
         <ReactQueryDevtools initialIsOpen={false} />
