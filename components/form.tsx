@@ -127,8 +127,8 @@ export function Form({ data }: any) {
                 </TabsList>
                 <TabsContent value='general' className='w-[400px]'>
                   <p className='text-sm text-slate-500 dark:text-slate-400'>
-                    Make changes to your account here. Click save when you're
-                    done.
+                    Make changes to your account here. Click save when
+                    you&apos;re done.
                   </p>
                   <div className='grid gap-2 py-4'>
                     <div className='space-y-1'>
@@ -146,8 +146,8 @@ export function Form({ data }: any) {
                 </TabsContent>
                 <TabsContent value='purpose' className='w-[400px]'>
                   <p className='text-sm text-slate-500 dark:text-slate-400'>
-                    Change your password here. After saving, you'll be logged
-                    out.
+                    Change your password here. After saving, you&apos;ll be
+                    logged out.
                   </p>
                   <div className='grid gap-2 py-4'>
                     <div className='space-y-1'>
@@ -238,8 +238,8 @@ export function Form({ data }: any) {
                 </TabsList>
                 <TabsContent value='rep' className='w-[400px]'>
                   <p className='text-sm text-slate-500 dark:text-slate-400'>
-                    Make changes to your account here. Click save when you're
-                    done.
+                    Make changes to your account here. Click save when
+                    you&apos;re done.
                   </p>
                   <div className='grid gap-2 py-4'>
                     <div className='space-y-1'>
@@ -257,8 +257,8 @@ export function Form({ data }: any) {
                 </TabsContent>
                 <TabsContent value='compliance' className='w-[400px]'>
                   <p className='text-sm text-slate-500 dark:text-slate-400'>
-                    Change your password here. After saving, you'll be logged
-                    out.
+                    Change your password here. After saving, you&apos;ll be
+                    logged out.
                   </p>
                   <div className='grid gap-2 py-4'>
                     <div className='space-y-1'>
@@ -276,8 +276,8 @@ export function Form({ data }: any) {
                 </TabsContent>
                 <TabsContent value='owners' className='w-[400px]'>
                   <p className='text-sm text-slate-500 dark:text-slate-400'>
-                    Make changes to your account here. Click save when you're
-                    done.
+                    Make changes to your account here. Click save when
+                    you&apos;re done.
                   </p>
                   <div className='grid gap-2 py-4'>
                     <div className='space-y-1'>
@@ -295,8 +295,8 @@ export function Form({ data }: any) {
                 </TabsContent>
                 <TabsContent value='directors' className='w-[400px]'>
                   <p className='text-sm text-slate-500 dark:text-slate-400'>
-                    Make changes to your account here. Click save when you're
-                    done.
+                    Make changes to your account here. Click save when
+                    you&apos;re done.
                   </p>
                   <div className='grid gap-2 py-4'>
                     <div className='space-y-1'>

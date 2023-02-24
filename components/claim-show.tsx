@@ -300,7 +300,7 @@ export function ClaimShow({ data }: any) {
                     </TabsContent>
                     <TabsContent value='purpose' className='w-[400px]'>
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Change your password here. After saving, you'll be
+                        Change your password here. After saving, you&apos;ll be
                         logged out.
                       </p>
                       <div className='grid gap-2 py-4'>
@@ -395,7 +395,7 @@ export function ClaimShow({ data }: any) {
                     <TabsContent value='rep' className='w-[400px]'>
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Make changes to your account here. Click save when
-                        you're done.
+                        you&apos;re done.
                       </p>
                       <div className='grid gap-2 py-4'>
                         <div className='space-y-1'>
@@ -413,7 +413,7 @@ export function ClaimShow({ data }: any) {
                     </TabsContent>
                     <TabsContent value='compliance' className='w-[400px]'>
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Change your password here. After saving, you'll be
+                        Change your password here. After saving, you&apos;ll be
                         logged out.
                       </p>
                       <div className='grid gap-2 py-4'>
@@ -433,7 +433,7 @@ export function ClaimShow({ data }: any) {
                     <TabsContent value='owners' className='w-[400px]'>
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Make changes to your account here. Click save when
-                        you're done.
+                        you&apos;re done.
                       </p>
                       <div className='grid gap-2 py-4'>
                         <div className='space-y-1'>
@@ -452,7 +452,7 @@ export function ClaimShow({ data }: any) {
                     <TabsContent value='directors' className='w-[400px]'>
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Make changes to your account here. Click save when
-                        you're done.
+                        you&apos;re done.
                       </p>
                       <div className='grid gap-2 py-4'>
                         <div className='space-y-1'>
