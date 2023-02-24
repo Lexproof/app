@@ -6,7 +6,7 @@ import { Button } from '@/ui/button';
 
 const pages = [
   {
-    name: 'Investments > $5M (Qualified Buyer)',
+    name: 'KYC',
     href: '/claims/1',
     current: false,
   },

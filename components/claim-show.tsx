@@ -89,10 +89,10 @@ export function ClaimShow({ data }: any) {
                 </h2>
                 <div className='flex flex-col'>
                   <h2 className='text-3xl font-medium tracking-tight text-neutral-900 dark:text-slate-50 sm:text-3xl'>
-                    Investments &gt; $5M
+                    KYC
                   </h2>
                   <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                    Ownership of $5M or more in investments.
+                    Know your Business Verification.
                   </p>
                 </div>
                 <div className='mt-6 border-t border-neutral-300 pt-6 dark:border-neutral-800'>
@@ -293,7 +293,10 @@ export function ClaimShow({ data }: any) {
                         </Button>
                       </div>
                     </TabsContent>
-                    <TabsContent value='purpose' className='w-[400px]'>
+                    <TabsContent
+                      value='purpose'
+                      className='h-100 max-h-[500px] w-full overflow-y-auto'
+                    >
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Change your password here. After saving, you&apos;ll be
                         logged out.
@@ -387,7 +390,10 @@ export function ClaimShow({ data }: any) {
                       </TabsTrigger>
                       <TabsTrigger value='directors'>Directors</TabsTrigger>
                     </TabsList>
-                    <TabsContent value='rep' className='w-[400px]'>
+                    <TabsContent
+                      value='rep'
+                      className='h-100 max-h-[500px] w-full overflow-y-auto'
+                    >
                       <div className='mb-10 flex flex-col space-y-3'>
                         <div className='my-3'>
                           <div className='my-3'>
@@ -492,7 +498,10 @@ export function ClaimShow({ data }: any) {
                         </Button>
                       </div>
                     </TabsContent>
-                    <TabsContent value='compliance' className='w-[400px]'>
+                    <TabsContent
+                      value='compliance'
+                      className='h-100 max-h-[500px] w-full overflow-y-auto'
+                    >
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Change your password here. After saving, you&apos;ll be
                         logged out.
@@ -511,7 +520,10 @@ export function ClaimShow({ data }: any) {
                         <Button>Save password</Button>
                       </div>
                     </TabsContent>
-                    <TabsContent value='owners' className='w-[400px]'>
+                    <TabsContent
+                      value='owners'
+                      className='h-100 max-h-[500px] w-full overflow-y-auto'
+                    >
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Make changes to your account here. Click save when
                         you&apos;re done.
@@ -530,7 +542,10 @@ export function ClaimShow({ data }: any) {
                         <Button>Save changes</Button>
                       </div>
                     </TabsContent>
-                    <TabsContent value='directors' className='w-[400px]'>
+                    <TabsContent
+                      value='directors'
+                      className='h-100 max-h-[500px] w-full overflow-y-auto'
+                    >
                       <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Make changes to your account here. Click save when
                         you&apos;re done.

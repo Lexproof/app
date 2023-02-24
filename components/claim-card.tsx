@@ -54,10 +54,10 @@ export function ClaimCard({ data }: any) {
             </h2>
             <div className='flex flex-col'>
               <h2 className='text-3xl font-medium tracking-tight text-neutral-900 dark:text-slate-50 sm:text-3xl'>
-                Investments &gt; $5M
+                KYC
               </h2>
               <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                Ownership of $5M or more in investments.
+                Know your Business Verification.
               </p>
             </div>
             <div className='mt-6 border-t border-neutral-800 pt-6'>
