@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { Button } from '@/ui/button';
 import { RadioGroup, RadioGroupCardItem } from '@/ui/radio-group';
@@ -65,15 +66,15 @@ const industryTypes = [
 export function SignupFlow() {
   const [selectedAccount, setSelectedAccount] = React.useState(null);
   const [formData, setFormData] = React.useState({
-    firstName: '',
-    lastName: '',
-    businessName: '',
-    businessCountry: '',
-    businessState: '',
-    businessWebsite: '',
+    firstName: 'Samuel',
+    lastName: 'Waits',
+    businessName: 'Lexproof',
+    businessCountry: 'United States',
+    businessState: 'Texas',
+    businessWebsite: 'lexproof.xyz',
     hasWebsite: false,
-    businessType: '',
-    businessIndustry: '',
+    businessType: 'LLC',
+    businessIndustry: 'Web3',
   });
 
   const isValid = isFormDataValid(formData);
@@ -305,14 +306,16 @@ export function SignupFlow() {
                 </div>
               </div>
               <div>
-                <Button
-                  type='submit'
-                  variant='primary'
-                  className='flex w-full justify-center'
-                  disabled={!isValid}
-                >
-                  Create account
-                </Button>
+                <Link href='/claims'>
+                  <Button
+                    type='submit'
+                    variant='primary'
+                    className='flex w-full justify-center'
+                    // disabled={!isValid}
+                  >
+                    Create account
+                  </Button>
+                </Link>
               </div>
             </form>
           </div>
