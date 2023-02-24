@@ -64,10 +64,10 @@ export function ClaimShow({ data }: any) {
   const handleClaim = () => {
     const timer = setTimeout(() => {
       setClaiming(true);
-    }, 2000);
+    }, 7500);
     const timer2 = setTimeout(() => {
       setClaiming(false);
-    }, 10000);
+    }, 15000);
 
     const timer3 = setTimeout(() => {
       setClaimed(true);
@@ -963,9 +963,14 @@ export function ClaimShow({ data }: any) {
                   <div className='mb-10 flex flex-col space-y-3'>
                     <div className='my-3'>
                       <div className='my-3'>
-                        <Label htmlFor='name'>
-                          Upload the documents used to form your business.
-                        </Label>
+                        <div>
+                          <h3 className='text-base font-semibold leading-6 text-gray-900 dark:text-neutral-100'>
+                            Documents
+                          </h3>
+                          <p className='mt-1 max-w-2xl text-sm text-gray-500'>
+                            Upload the documents used to form your business.
+                          </p>
+                        </div>
                       </div>
                       <div className='mt-1 sm:col-span-2 sm:mt-0'>
                         <div className='flex max-w-lg justify-center rounded-md border-2 border-dashed px-6 pt-5 pb-6 dark:border-neutral-800'>
