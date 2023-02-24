@@ -959,81 +959,8 @@ export function ClaimShow({ data }: any) {
                       : 'Start'}
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className='h-100 max-h-[500px] w-full overflow-y-auto'>
                   <div className='mb-10 flex flex-col space-y-3'>
-                    <div className='my-3'>
-                      <div className='my-3'>
-                        <Label htmlFor='name'>Tax ID/Registration Number</Label>
-                      </div>
-                      <Input id='name' defaultValue='94-2404110' />
-                    </div>
-                    <div className='my-3'>
-                      <div className='my-3'>
-                        <Label htmlFor='name'>Date of formation</Label>
-                      </div>
-                      <Input id='name' defaultValue='MM/DD/YYYY' />
-                    </div>
-                    <div className='my-3'>
-                      <div className='my-3'>
-                        <Label htmlFor='name'>
-                          Provide a description of your business
-                        </Label>
-                      </div>
-                      <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
-                    </div>
-                    <div className='my-3'>
-                      <div className='my-3'>
-                        <Label htmlFor='name'>
-                          Do you do business under a different name than your
-                          legal entity name?
-                        </Label>
-                      </div>
-                      <RadioGroup defaultValue='no'>
-                        <div className='flex items-center space-x-2'>
-                          <RadioGroupItem value='yes' id='r1' />
-                          <Label htmlFor='r1'>Yes</Label>
-                        </div>
-                        <div className='flex items-center space-x-2'>
-                          <RadioGroupItem value='no' id='r2' />
-                          <Label htmlFor='r2'>No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-                    <div className='my-3'>
-                      <div className='my-3'>
-                        <Label htmlFor='name'>
-                          Do you have a business website?
-                        </Label>
-                      </div>
-                      <RadioGroup defaultValue='no'>
-                        <div className='flex items-center space-x-2'>
-                          <RadioGroupItem value='yes' id='r1' />
-                          <Label htmlFor='r1'>Yes</Label>
-                        </div>
-                        <div className='flex items-center space-x-2'>
-                          <RadioGroupItem value='no' id='r2' />
-                          <Label htmlFor='r2'>No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-                    <div className='my-3'>
-                      <div className='my-3'>
-                        <Label htmlFor='name'>Number of employees</Label>
-                      </div>
-                      <Select defaultValue='3'>
-                        <SelectTrigger className='w-full'>
-                          <SelectValue placeholder='3' />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectGroup>
-                            <SelectLabel>Num of employees</SelectLabel>
-                            <SelectItem value='1'>1</SelectItem>
-                            <SelectItem value='2'>2</SelectItem>
-                            <SelectItem value='3'>3</SelectItem>
-                          </SelectGroup>
-                        </SelectContent>
-                      </Select>
-                    </div>
                     <div className='my-3'>
                       <div className='my-3'>
                         <Label htmlFor='name'>
