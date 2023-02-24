@@ -5,7 +5,6 @@ import { ClaimSearch } from '@/components/claim-search';
 
 export default async function Claims() {
   const data = await getOffers();
-  console.log({ data });
 
   return (
     <>

@@ -19,11 +19,6 @@ export function ClaimCard({ data }: any) {
     complete = 'complete',
   }
 
-  console.log(
-    'status',
-    Object.values(status).filter((s) => s === 'complete').length < 3
-  );
-
   const handleBusinessInfo = () => {
     const timer = setTimeout(() => {
       setStatus((prev) => ({ ...prev, businessInfo: 'complete' }));

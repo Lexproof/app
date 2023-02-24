@@ -40,11 +40,6 @@ export function ClaimShow({ data }: any) {
     complete = 'complete',
   }
 
-  console.log(
-    'status',
-    Object.values(status).filter((s) => s === 'complete').length < 3
-  );
-
   const handleBusinessInfo = () => {
     setStatus((prev) => ({ ...prev, businessInfo: 'complete' }));
     setProgress(progress + 33.33);
