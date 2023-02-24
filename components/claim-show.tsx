@@ -67,16 +67,12 @@ export function ClaimShow({ data }: any) {
     }, 7500);
     const timer2 = setTimeout(() => {
       setClaiming(false);
-    }, 15000);
-
-    const timer3 = setTimeout(() => {
       setClaimed(true);
-    }, 30000);
+    }, 15000);
 
     return () => {
       clearTimeout(timer);
       clearTimeout(timer2);
-      clearTimeout(timer3);
     };
   };
 
