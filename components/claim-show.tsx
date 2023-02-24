@@ -46,11 +46,8 @@ export function ClaimShow({ data }: any) {
   };
 
   const handleRelatedParties = () => {
-    const timer = setTimeout(() => {
-      setStatus((prev) => ({ ...prev, relatedParties: 'complete' }));
-      setProgress(progress + 33.33);
-    }, 2000);
-    return () => clearTimeout(timer);
+    setStatus((prev) => ({ ...prev, relatedParties: 'complete' }));
+    setProgress(progress + 33.33);
   };
 
   const handleDocuments = () => {
@@ -301,22 +298,108 @@ export function ClaimShow({ data }: any) {
                       value='purpose'
                       className='h-100 max-h-[500px] w-full overflow-y-auto'
                     >
-                      <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Change your password here. After saving, you&apos;ll be
-                        logged out.
-                      </p>
-                      <div className='grid gap-2 py-4'>
-                        <div className='space-y-1'>
-                          <Label htmlFor='current'>Current password</Label>
-                          <Input id='current' type='password' />
+                      <div className='mb-10 flex flex-col space-y-3'>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Tax ID/Registration Number
+                            </Label>
+                          </div>
+                          <Input id='name' defaultValue='94-2404110' />
                         </div>
-                        <div className='space-y-1'>
-                          <Label htmlFor='new'>New password</Label>
-                          <Input id='new' type='password' />
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Date of formation</Label>
+                          </div>
+                          <Input id='name' defaultValue='MM/DD/YYYY' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Provide a description of your business
+                            </Label>
+                          </div>
+                          <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you do business under a different name than
+                              your legal entity name?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you have a business website?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Number of employees</Label>
+                          </div>
+                          <Select defaultValue='3'>
+                            <SelectTrigger className='w-full'>
+                              <SelectValue placeholder='3' />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Num of employees</SelectLabel>
+                                <SelectItem value='1'>1</SelectItem>
+                                <SelectItem value='2'>2</SelectItem>
+                                <SelectItem value='3'>3</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Are you registered to have a financial services
+                              license or registration to conduct your business
+                              legally?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='yes'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
                         </div>
                       </div>
                       <div className='flex'>
-                        <Button>Save password</Button>
+                        <Button onClick={handleBusinessInfo}>
+                          {status.businessInfo === Status.complete
+                            ? 'Saved!'
+                            : 'Save changes'}
+                        </Button>
                       </div>
                     </TabsContent>
                   </Tabs>
@@ -368,7 +451,6 @@ export function ClaimShow({ data }: any) {
                         ? 'outline'
                         : 'default'
                     }
-                    onClick={handleRelatedParties}
                     className={cn('w-28', {
                       'bg-gray-500 text-white dark:bg-neutral-900 dark:text-slate-50':
                         status.relatedParties === Status.complete,
@@ -495,8 +577,8 @@ export function ClaimShow({ data }: any) {
                         </div>
                       </div>
                       <div className='flex'>
-                        <Button onClick={handleBusinessInfo}>
-                          {status.businessInfo === Status.complete
+                        <Button onClick={handleRelatedParties}>
+                          {status.relatedParties === Status.complete
                             ? 'Saved!'
                             : 'Save changes'}
                         </Button>
@@ -506,66 +588,324 @@ export function ClaimShow({ data }: any) {
                       value='compliance'
                       className='h-100 max-h-[500px] w-full overflow-y-auto'
                     >
-                      <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Change your password here. After saving, you&apos;ll be
-                        logged out.
-                      </p>
-                      <div className='grid gap-2 py-4'>
-                        <div className='space-y-1'>
-                          <Label htmlFor='current'>Current password</Label>
-                          <Input id='current' type='password' />
+                      <div className='mb-10 flex flex-col space-y-3'>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Tax ID/Registration Number
+                            </Label>
+                          </div>
+                          <Input id='name' defaultValue='94-2404110' />
                         </div>
-                        <div className='space-y-1'>
-                          <Label htmlFor='new'>New password</Label>
-                          <Input id='new' type='password' />
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Date of formation</Label>
+                          </div>
+                          <Input id='name' defaultValue='MM/DD/YYYY' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Provide a description of your business
+                            </Label>
+                          </div>
+                          <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you do business under a different name than
+                              your legal entity name?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you have a business website?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Number of employees</Label>
+                          </div>
+                          <Select defaultValue='3'>
+                            <SelectTrigger className='w-full'>
+                              <SelectValue placeholder='3' />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Num of employees</SelectLabel>
+                                <SelectItem value='1'>1</SelectItem>
+                                <SelectItem value='2'>2</SelectItem>
+                                <SelectItem value='3'>3</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Are you registered to have a financial services
+                              license or registration to conduct your business
+                              legally?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='yes'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
                         </div>
                       </div>
                       <div className='flex'>
-                        <Button>Save password</Button>
+                        <Button onClick={handleBusinessInfo}>
+                          {status.businessInfo === Status.complete
+                            ? 'Saved!'
+                            : 'Save changes'}
+                        </Button>
                       </div>
                     </TabsContent>
                     <TabsContent
                       value='owners'
                       className='h-100 max-h-[500px] w-full overflow-y-auto'
                     >
-                      <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Make changes to your account here. Click save when
-                        you&apos;re done.
-                      </p>
-                      <div className='grid gap-2 py-4'>
-                        <div className='space-y-1'>
-                          <Label htmlFor='name'>Name</Label>
-                          <Input id='name' defaultValue='Pedro Duarte' />
+                      <div className='mb-10 flex flex-col space-y-3'>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Tax ID/Registration Number
+                            </Label>
+                          </div>
+                          <Input id='name' defaultValue='94-2404110' />
                         </div>
-                        <div className='space-y-1'>
-                          <Label htmlFor='username'>Username</Label>
-                          <Input id='username' defaultValue='@peduarte' />
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Date of formation</Label>
+                          </div>
+                          <Input id='name' defaultValue='MM/DD/YYYY' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Provide a description of your business
+                            </Label>
+                          </div>
+                          <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you do business under a different name than
+                              your legal entity name?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you have a business website?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Number of employees</Label>
+                          </div>
+                          <Select defaultValue='3'>
+                            <SelectTrigger className='w-full'>
+                              <SelectValue placeholder='3' />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Num of employees</SelectLabel>
+                                <SelectItem value='1'>1</SelectItem>
+                                <SelectItem value='2'>2</SelectItem>
+                                <SelectItem value='3'>3</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Are you registered to have a financial services
+                              license or registration to conduct your business
+                              legally?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='yes'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
                         </div>
                       </div>
                       <div className='flex'>
-                        <Button>Save changes</Button>
+                        <Button onClick={handleBusinessInfo}>
+                          {status.businessInfo === Status.complete
+                            ? 'Saved!'
+                            : 'Save changes'}
+                        </Button>
                       </div>
                     </TabsContent>
                     <TabsContent
                       value='directors'
                       className='h-100 max-h-[500px] w-full overflow-y-auto'
                     >
-                      <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Make changes to your account here. Click save when
-                        you&apos;re done.
-                      </p>
-                      <div className='grid gap-2 py-4'>
-                        <div className='space-y-1'>
-                          <Label htmlFor='name'>Name</Label>
-                          <Input id='name' defaultValue='Pedro Duarte' />
+                      <div className='mb-10 flex flex-col space-y-3'>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Tax ID/Registration Number
+                            </Label>
+                          </div>
+                          <Input id='name' defaultValue='94-2404110' />
                         </div>
-                        <div className='space-y-1'>
-                          <Label htmlFor='username'>Username</Label>
-                          <Input id='username' defaultValue='@peduarte' />
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Date of formation</Label>
+                          </div>
+                          <Input id='name' defaultValue='MM/DD/YYYY' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Provide a description of your business
+                            </Label>
+                          </div>
+                          <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you do business under a different name than
+                              your legal entity name?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you have a business website?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Number of employees</Label>
+                          </div>
+                          <Select defaultValue='3'>
+                            <SelectTrigger className='w-full'>
+                              <SelectValue placeholder='3' />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Num of employees</SelectLabel>
+                                <SelectItem value='1'>1</SelectItem>
+                                <SelectItem value='2'>2</SelectItem>
+                                <SelectItem value='3'>3</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Are you registered to have a financial services
+                              license or registration to conduct your business
+                              legally?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='yes'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
                         </div>
                       </div>
                       <div className='flex'>
-                        <Button>Save changes</Button>
+                        <Button onClick={handleBusinessInfo}>
+                          {status.businessInfo === Status.complete
+                            ? 'Saved!'
+                            : 'Save changes'}
+                        </Button>
                       </div>
                     </TabsContent>
                   </Tabs>
