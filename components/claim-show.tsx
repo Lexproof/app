@@ -46,8 +46,11 @@ export function ClaimShow({ data }: any) {
   };
 
   const handleRelatedParties = () => {
-    setStatus((prev) => ({ ...prev, relatedParties: 'complete' }));
-    setProgress(progress + 33.33);
+    const timer = setTimeout(() => {
+      setStatus((prev) => ({ ...prev, relatedParties: 'complete' }));
+      setProgress(progress + 33.33);
+    }, 2000);
+    return () => clearTimeout(timer);
   };
 
   const handleDocuments = () => {
@@ -451,6 +454,7 @@ export function ClaimShow({ data }: any) {
                         ? 'outline'
                         : 'default'
                     }
+                    onClick={handleRelatedParties}
                     className={cn('w-28', {
                       'bg-gray-500 text-white dark:bg-neutral-900 dark:text-slate-50':
                         status.relatedParties === Status.complete,
@@ -956,43 +960,132 @@ export function ClaimShow({ data }: any) {
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
-                  <div className='mt-1 sm:col-span-2 sm:mt-0'>
-                    <div className='flex max-w-lg justify-center rounded-md border-2 border-dashed px-6 pt-5 pb-6 dark:border-neutral-800'>
-                      <div className='space-y-1 text-center'>
-                        <svg
-                          className='mx-auto h-12 w-12 text-gray-400'
-                          stroke='currentColor'
-                          fill='none'
-                          viewBox='0 0 48 48'
-                          aria-hidden='true'
-                        >
-                          <path
-                            d='M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02'
-                            strokeWidth={2}
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                        </svg>
-                        <div className='flex text-sm text-gray-600'>
-                          <label
-                            htmlFor='file-upload'
-                            className='relative cursor-pointer rounded-md bg-white font-medium text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500 dark:bg-neutral-900'
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id='file-upload'
-                              name='file-upload'
-                              type='file'
-                              className='sr-only'
-                            />
-                          </label>
-                          <p className='pl-1'>or drag and drop</p>
+                  <div className='mb-10 flex flex-col space-y-3'>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>Tax ID/Registration Number</Label>
+                      </div>
+                      <Input id='name' defaultValue='94-2404110' />
+                    </div>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>Date of formation</Label>
+                      </div>
+                      <Input id='name' defaultValue='MM/DD/YYYY' />
+                    </div>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>
+                          Provide a description of your business
+                        </Label>
+                      </div>
+                      <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
+                    </div>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>
+                          Do you do business under a different name than your
+                          legal entity name?
+                        </Label>
+                      </div>
+                      <RadioGroup defaultValue='no'>
+                        <div className='flex items-center space-x-2'>
+                          <RadioGroupItem value='yes' id='r1' />
+                          <Label htmlFor='r1'>Yes</Label>
                         </div>
-                        <p className='text-xs text-gray-500'>
-                          PNG, JPG, GIF up to 10MB
-                        </p>
+                        <div className='flex items-center space-x-2'>
+                          <RadioGroupItem value='no' id='r2' />
+                          <Label htmlFor='r2'>No</Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>
+                          Do you have a business website?
+                        </Label>
+                      </div>
+                      <RadioGroup defaultValue='no'>
+                        <div className='flex items-center space-x-2'>
+                          <RadioGroupItem value='yes' id='r1' />
+                          <Label htmlFor='r1'>Yes</Label>
+                        </div>
+                        <div className='flex items-center space-x-2'>
+                          <RadioGroupItem value='no' id='r2' />
+                          <Label htmlFor='r2'>No</Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>Number of employees</Label>
+                      </div>
+                      <Select defaultValue='3'>
+                        <SelectTrigger className='w-full'>
+                          <SelectValue placeholder='3' />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectLabel>Num of employees</SelectLabel>
+                            <SelectItem value='1'>1</SelectItem>
+                            <SelectItem value='2'>2</SelectItem>
+                            <SelectItem value='3'>3</SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className='my-3'>
+                      <div className='my-3'>
+                        <Label htmlFor='name'>
+                          Upload the documents used to form your business.
+                        </Label>
+                      </div>
+                      <div className='mt-1 sm:col-span-2 sm:mt-0'>
+                        <div className='flex max-w-lg justify-center rounded-md border-2 border-dashed px-6 pt-5 pb-6 dark:border-neutral-800'>
+                          <div className='space-y-1 text-center'>
+                            <svg
+                              className='mx-auto h-12 w-12 text-gray-400'
+                              stroke='currentColor'
+                              fill='none'
+                              viewBox='0 0 48 48'
+                              aria-hidden='true'
+                            >
+                              <path
+                                d='M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02'
+                                strokeWidth={2}
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                              />
+                            </svg>
+                            <div className='flex text-sm text-gray-600'>
+                              <label
+                                htmlFor='file-upload'
+                                className='relative cursor-pointer rounded-md bg-white font-medium text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500 dark:bg-neutral-900'
+                              >
+                                <span>Upload a file</span>
+                                <input
+                                  id='file-upload'
+                                  name='file-upload'
+                                  type='file'
+                                  className='sr-only'
+                                />
+                              </label>
+                              <p className='pl-1'>or drag and drop</p>
+                            </div>
+                            <p className='text-xs text-gray-500'>
+                              PNG, JPG, GIF up to 10MB
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                  </div>
+                  <div className='flex'>
+                    <Button onClick={handleBusinessInfo}>
+                      {status.businessInfo === Status.complete
+                        ? 'Saved!'
+                        : 'Save changes'}
+                    </Button>
                   </div>
                 </DialogContent>
               </Dialog>
