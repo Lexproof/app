@@ -388,22 +388,108 @@ export function ClaimShow({ data }: any) {
                       <TabsTrigger value='directors'>Directors</TabsTrigger>
                     </TabsList>
                     <TabsContent value='rep' className='w-[400px]'>
-                      <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Make changes to your account here. Click save when
-                        you&apos;re done.
-                      </p>
-                      <div className='grid gap-2 py-4'>
-                        <div className='space-y-1'>
-                          <Label htmlFor='name'>Name</Label>
-                          <Input id='name' defaultValue='Pedro Duarte' />
+                      <div className='mb-10 flex flex-col space-y-3'>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Tax ID/Registration Number
+                            </Label>
+                          </div>
+                          <Input id='name' defaultValue='94-2404110' />
                         </div>
-                        <div className='space-y-1'>
-                          <Label htmlFor='username'>Username</Label>
-                          <Input id='username' defaultValue='@peduarte' />
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Date of formation</Label>
+                          </div>
+                          <Input id='name' defaultValue='MM/DD/YYYY' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Provide a description of your business
+                            </Label>
+                          </div>
+                          <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' />
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you do business under a different name than
+                              your legal entity name?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Do you have a business website?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='no'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>Number of employees</Label>
+                          </div>
+                          <Select defaultValue='3'>
+                            <SelectTrigger className='w-full'>
+                              <SelectValue placeholder='3' />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Num of employees</SelectLabel>
+                                <SelectItem value='1'>1</SelectItem>
+                                <SelectItem value='2'>2</SelectItem>
+                                <SelectItem value='3'>3</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className='my-3'>
+                          <div className='my-3'>
+                            <Label htmlFor='name'>
+                              Are you registered to have a financial services
+                              license or registration to conduct your business
+                              legally?
+                            </Label>
+                          </div>
+                          <RadioGroup defaultValue='yes'>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='yes' id='r1' />
+                              <Label htmlFor='r1'>Yes</Label>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                              <RadioGroupItem value='no' id='r2' />
+                              <Label htmlFor='r2'>No</Label>
+                            </div>
+                          </RadioGroup>
                         </div>
                       </div>
                       <div className='flex'>
-                        <Button>Save changes</Button>
+                        <Button onClick={handleBusinessInfo}>
+                          {status.businessInfo === Status.complete
+                            ? 'Saved!'
+                            : 'Save changes'}
+                        </Button>
                       </div>
                     </TabsContent>
                     <TabsContent value='compliance' className='w-[400px]'>
