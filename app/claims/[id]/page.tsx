@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { ClaimShow } from '@/components/claim-show';
 // import { ClaimButton } from '@/components/claim-button';
 
-const pages = [{ name: 'KYC', href: '#', current: true }];
+const pages = [{ name: 'KYB', href: '#', current: true }];
 
 export default function Show() {
   return (

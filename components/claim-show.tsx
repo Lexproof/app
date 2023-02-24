@@ -89,7 +89,7 @@ export function ClaimShow({ data }: any) {
                 </h2>
                 <div className='flex flex-col'>
                   <h2 className='text-3xl font-medium tracking-tight text-neutral-900 dark:text-slate-50 sm:text-3xl'>
-                    KYC
+                    KYB
                   </h2>
                   <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
                     Know your Business Verification.

@@ -6,7 +6,7 @@ import { Button } from '@/ui/button';
 
 const pages = [
   {
-    name: 'KYC',
+    name: 'KYB',
     href: '/claims/1',
     current: false,
   },
