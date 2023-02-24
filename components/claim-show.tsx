@@ -89,10 +89,11 @@ export function ClaimShow({ data }: any) {
                 </h2>
                 <div className='flex flex-col'>
                   <h2 className='text-3xl font-medium tracking-tight text-neutral-900 dark:text-slate-50 sm:text-3xl'>
-                    KYB
+                    KYB (Know Your Business)
                   </h2>
                   <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                    Know your Business Verification.
+                    Stay compliant and protect your business with our KYB
+                    verification service.
                   </p>
                 </div>
                 <div className='mt-6 border-t border-neutral-300 pt-6 dark:border-neutral-800'>
