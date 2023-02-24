@@ -57,8 +57,7 @@ export function ClaimCard({ data }: any) {
                 KYB (Know Your Business)
               </h2>
               <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                Stay compliant and protect your business with our KYB
-                verification service.
+                Protect your business with our KYB claim.
               </p>
             </div>
             <div className='mt-6 border-t border-neutral-800 pt-6'>

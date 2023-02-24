@@ -32,7 +32,7 @@ export const Icons = {
   ),
   networth: (props: LucideProps & { featured?: boolean; filled?: boolean }) => (
     <svg
-      className={cn(`h-10 w-10 group-hover:fill-blue-500`, {
+      className={cn(`mx-auto h-10 w-10 group-hover:fill-blue-500`, {
         'fill-blue-500': props.filled,
         'h-72 w-72': props.featured,
       })}

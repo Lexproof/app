@@ -67,12 +67,16 @@ export function ClaimShow({ data }: any) {
     }, 2000);
     const timer2 = setTimeout(() => {
       setClaiming(false);
+    }, 10000);
+
+    const timer3 = setTimeout(() => {
       setClaimed(true);
-    }, 4000);
+    }, 30000);
 
     return () => {
       clearTimeout(timer);
       clearTimeout(timer2);
+      clearTimeout(timer3);
     };
   };
 
@@ -92,8 +96,7 @@ export function ClaimShow({ data }: any) {
                     KYB (Know Your Business)
                   </h2>
                   <p className='font-regular text-lg leading-8 tracking-tight text-gray-500'>
-                    Stay compliant and protect your business with our KYB
-                    verification service.
+                    Protect your business with our KYB claim.
                   </p>
                 </div>
                 <div className='mt-6 border-t border-neutral-300 pt-6 dark:border-neutral-800'>
