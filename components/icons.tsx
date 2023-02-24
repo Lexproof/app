@@ -34,7 +34,7 @@ export const Icons = {
     <svg
       className={cn(`h-10 w-10 group-hover:fill-blue-500`, {
         'fill-blue-500': props.filled,
-        'h-96 w-96': props.featured,
+        'h-72 w-72': props.featured,
       })}
       viewBox='0 0 116 60'
       fill='currentColor'

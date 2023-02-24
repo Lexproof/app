@@ -57,7 +57,7 @@ const RadioGroupCardItem = React.forwardRef<
       className={cn(
         'inline-flex w-full items-start justify-between space-y-4 rounded-md border border-gray-300 px-4 py-4 focus-within:ring focus-within:ring-neutral-800/25 dark:border-neutral-800',
         {
-          'dark:border-orange-500/50 dark:bg-orange-400/5': props.checked,
+          'dark:border-blue-500/50 dark:bg-blue-400/5': props.checked,
         },
         className
       )}
@@ -67,14 +67,14 @@ const RadioGroupCardItem = React.forwardRef<
         <div className='flex flex-col items-baseline'>
           <h2
             className={cn('text-md block font-semibold text-gray-300', {
-              'text-orange-300': props.checked,
+              'text-blue-300': props.checked,
             })}
           >
             {props.title}
           </h2>
           <p
             className={cn('block text-sm', {
-              'text-orange-300': props.checked,
+              'text-blue-300': props.checked,
             })}
           >
             {props.description}
@@ -84,7 +84,7 @@ const RadioGroupCardItem = React.forwardRef<
       <RadioGroupPrimitive.Indicator className='flex items-center justify-center'>
         <Check
           className={cn('h-4 w-4', {
-            'text-orange-300': props.checked,
+            'text-blue-300': props.checked,
             hidden: !props.checked,
           })}
         />

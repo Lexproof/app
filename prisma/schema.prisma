@@ -24,11 +24,23 @@ model Claim {
 }
 
 model Offer {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  icon        String
+  active      Boolean  @default(false)
+  claims      Claim[]
+  packageId   Int?
+  package     Package? @relation(fields: [packageId], references: [id])
+}
+
+model Package {
   id          Int     @id @default(autoincrement())
   name        String
   description String
   price       Float
   icon        String
   active      Boolean @default(false)
-  claims      Claim[]
+  offers      Offer[]
 }

@@ -10,7 +10,7 @@ export default async function Claims() {
   return (
     <>
       <main className='flex flex-col items-center justify-center'>
-        <div className='w-full bg-transparent p-24 sm:p-24'>
+        <div className='w-full bg-neutral-100 p-24 dark:bg-neutral-900 sm:p-24'>
           <div className='max-w-7xl px-6 lg:px-8'>
             <div className='mx-auto max-w-2xl space-y-6'>
               <div className='space-y-2'>
